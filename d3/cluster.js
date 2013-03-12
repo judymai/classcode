@@ -14,6 +14,65 @@ function dist(a,b) {
 }
 
 
+function find_closest(d,centers){
+    var closest=0;
+    var closest_length = dist(d,centers[0]);
+    for (var i=1;i<centers.length;i++) {
+	var l = dist(d,centers[i]);
+	if (l<closest_length) {
+	    closest_length = l;
+	    closest=i;
+	}
+    }
+    return closest;
+}
+
+
+var colors =['red','green','blue'];
+function cluster() {
+    var circles = d3.selectAll('circle');
+    circles.transition().delay(function(d,i){return 20*i;}).
+	style('fill',function(d,i) {
+	    var fc = find_closest(d,centers);
+	    data[i].cluster=fc;
+	    return colors[fc];
+	});
+}
+
+function uncluster() {
+    var circles = d3.selectAll('circle');
+    circles.style('fill','black');
+}
+
+function recenter() {
+    newcenters = [];
+    for (var i=0;i<centers.length;i++) {
+	var vals = data.filter(function(d) { return d.cluster==i;});
+	
+	var xs = vals.map(function(d) {return d.x;});
+	var ys = vals.map(function(d) {return d.y;});
+	
+	var xsum = xs.reduce(function(a,b) {return a+b;});
+	var ysum = ys.reduce(function(a,b) {return a+b;});
+
+	var xavg = xsum / xs.length;
+	var yavg = ysum / ys.length;
+
+	newcenters.push ({ v:[xavg,yavg],x:xavg,y:yavg});
+    }
+
+    var cs = d3.selectAll('rect');
+
+    cs.data(newcenters).transition().
+	delay(function(d,i) { return i*50;}).
+	attr('x',function(d){return scalex(d.x);}).
+	attr('y',function(d){return scaley(d.y);});
+
+    return newcenters;
+}
+
+
+
 function make_data(n) {
     var d = [];
     for (var i=0;i<n;i++) {
@@ -32,7 +91,7 @@ var centers;
 var scalex,scaley;
 
 function make_initial_svg() {
-    data = make_data(40);
+    data = make_data(200);
     centers = make_data(3);
 
     svg = d3.select("#svg");
