@@ -138,8 +138,8 @@ function init() {
 
 
 function doit() {
-
-    
+    cluster();
+    centers=recenter();
 }
 
 
