@@ -127,6 +127,21 @@ function make_initial_svg() {
 }
 
 
+function reset() {
+    svg.selectAll('circle').remove();
+    svg.selectAll('rect').remove();
+}
+
+function init() {
+    make_initial_svg();
+}
+
+
+function doit() {
+
+    
+}
+
 
 $(document).ready(function() {
 		      make_initial_svg();
