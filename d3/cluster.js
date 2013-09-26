@@ -136,10 +136,17 @@ function init() {
     make_initial_svg();
 }
 
+function c() {
+    centers=recenter();
+}
+
 
 function doit() {
+    jQuery.when(cluster).done(c);
+	/*
     cluster();
     centers=recenter();
+*/
 }
 
 
