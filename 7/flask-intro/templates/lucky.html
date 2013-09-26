@@ -2,7 +2,12 @@
 
 Hi,
 <p>
+{% if name %}
 Welcome {{ name }}.
+{% else %}
+You have no name
+{% endif %}
+
 <p>
 <h3>Your lucky number is {{num}}</h3>
 <ul>

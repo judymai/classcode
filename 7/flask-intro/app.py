@@ -22,7 +22,7 @@ def home():
 
 @app.route("/luckyt")
 @app.route("/luckyt/<n>")
-def luckyt(n="Moe"):
+def luckyt(n=None):
     luckynum = random.randrange(0,100)
     return render_template("lucky.html",
                            name=n,

@@ -7,9 +7,21 @@ import random
 app = Flask(__name__)
 
 
+@app.route("/demo")
+def demo():
+    d={'name': "Clyde Thluffy Sinclair",
+       'age' : 4,
+       'rootsfor': ['NY Giants',
+                    'Michigan Wolverines',
+                    'Anyone plauing the Cowboys or Eagles',
+                    'Not the Skankees']
+       }
+    return render_template("demo.html",d=d)
+
+
 @app.route("/t1")
 @app.route("/t1/<n>")
-def t1(n="Moe"):
+def t1(n=None):
     luckynum=random.randrange(0,100)
     return render_template("index.html",name=n,
                            num=luckynum)

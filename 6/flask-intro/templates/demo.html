@@ -1,0 +1,18 @@
+<h1> This is the demo page </h1>
+
+
+<h2>The page of {{ d['name'] }} </h2>
+<h3>We could also reference the name this way {{d.name}}</h3>
+
+Thluffy is {{d.age}} years old.
+<br>
+Thluffy's favorite teams:
+<hr>
+{{d.rootsfor}}
+<hr>
+<ul>
+{% for item in d.rootsfor %}
+<li> {{ item }} </li>
+{% endfor %}
+</ul>
+More stuff
