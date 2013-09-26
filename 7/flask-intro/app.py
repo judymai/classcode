@@ -16,6 +16,16 @@ your lucky number is: %i
 
 app = Flask(__name__)
 
+@app.route("/demo")
+def demo():
+    d={'name':"Clyde Thluffy Sinclair",
+       'age':"4",
+       'rootsfor':['NY Giants','Michigan Wolverines',
+                   'Anyone playing the Eagles or Cowboys',
+                   'Not the NY Skankees']}
+    
+    return render_template("demo.html",d=d);
+
 @app.route("/")
 def home():
     return "<h1>This is the home page </h1>"
