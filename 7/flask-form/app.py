@@ -20,6 +20,10 @@ def form():
            'rating':request.form['rating']}
         button=request.form['button']
         if button=="Submit":
+            f=open("data.dat","a")
+            s="%(name)s:%(rating)s\n"%(d)
+            f.write(s)
+            f.close()
             return render_template("form-results.html",d=d)
         else:
             return render_template("form.html")
