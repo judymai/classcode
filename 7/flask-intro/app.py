@@ -24,7 +24,8 @@ def demo():
                    'Anyone playing the Eagles or Cowboys',
                    'Not the NY Skankees']}
     
-    return render_template("demo.html",d=d);
+    page = render_template("demo.html",d=d)
+    return page
 
 @app.route("/")
 def home():
