@@ -1,0 +1,4 @@
+INSERT INTO teachers VALUES("zamansky","michael","SD");
+INSERT INTO teachers VALUES("Brown","Topher","APCS");
+INSERT INTO teachers VALUES("Dyrland-Weaver","JonAlf","SYS");
+INSERT INTO teachers VALUES("Konstantinovich","Sam","INTRO");

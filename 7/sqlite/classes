@@ -1,0 +1,6 @@
+INSERT INTO classes VALUES ('SD','Software Development');
+INSERT INTO classes VALUES('APCS','Advanced Placement Computer Science');
+INSERT INTO classes VALUES('SYS','System Level Programming');
+INSERT INTO classes VALUES('INTRO','Introduction to Computer Science');
+
+

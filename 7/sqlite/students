@@ -1,0 +1,18 @@
+INSERT INTO students VALUES(2000,"Parker","Peter");
+INSERT INTO students VALUES(3000,"Banner","Bruce");
+INSERT INTO students VALUES(3001,"Richards","Reed");
+INSERT INTO students VALUES(3002,"Storm","Sue");
+INSERT INTO students VALUES(4000,"Strange","Stephen");
+INSERT INTO students VALUES(4001,"Octavius","Otto");
+INSERT INTO students VALUES(4002,"Jameson","J. Jonah");
+INSERT INTO students VALUES(5000,"Duggan","Dum Dum");
+INSERT INTO students VALUES(5001,"Murdoch","Matt");
+INSERT INTO students VALUES(5002,"Hogan","Happy");
+INSERT INTO students VALUES(5003,"Conners","Curt");
+INSERT INTO students VALUES(6000,"Lang","Lanna");
+INSERT INTO students VALUES(6001,"Lane","Loius");
+INSERT INTO students VALUES(6002,"Luthor","Lex");
+INSERT INTO students VALUES(6003,"Potts","Pepper");
+INSERT INTO students VALUES(6007,"West","Wally");
+
+

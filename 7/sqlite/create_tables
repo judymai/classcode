@@ -1,0 +1,4 @@
+create table students(id integer, last text, first text);
+create table grades(id integer, class text, grade integer);
+create table classes(class text, description text);
+create table teachers(last text, first text, class text);
