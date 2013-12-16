@@ -1,0 +1,28 @@
+
+<head>
+{% block head %}
+  <script src="/static/js/jquery.js"></script>
+
+  <title>{% block title %}The title {% endblock %}</title>
+
+  <style>
+    .green {color:#00ff00;}
+  </style>
+{% endblock %}
+</head>
+
+{% block header %}
+<h1>Header</h1>
+{% endblock %}
+
+
+{%block content %}
+
+This is the content 
+
+{% endblock %}
+
+{% block footer %}
+<hr>
+<h3>This page is brought to you by SoftDev</h3>
+{% endblock %}
