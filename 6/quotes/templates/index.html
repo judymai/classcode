@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Quotes{% endblock %}
+
+{% block content %}
+
+<style>
+.quotebox {
+   height:200px;
+   border-width:2px;
+   border-color:#ff0000;
+   border-style:solid;}
+</style>
+
+<div id="randomquote" class="quotebox">
+Random quotes go here
+</div>
+
+<div id="addedquote" class="quotebox">
+
+</div>
+
+<button id="add">add</button>
+<button id="clear">clear</button>
+
+<script src="/static/script.js"></script>
+{% endblock %}
