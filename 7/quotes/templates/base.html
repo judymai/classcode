@@ -1,0 +1,29 @@
+
+
+<head>
+{% block head %}
+  <style>
+    .green { color: #00ff00;}
+  </style>
+  <script src="/static/js/jquery.js"></script>
+  <title> {% block title %}The awesome web page {% endblock %}</title>
+{% endblock %}
+</head>
+
+<body>
+{% block header %}
+  <h1>The awesome web page </h1>
+{% endblock %}
+
+{% block content %}
+  <div id="content">
+    This is some content for the awesome web page
+  </div>
+{% endblock %}
+
+{% block footer %}
+  <hr>
+  <h4> the footer for the awesome web page </h4>
+{% endblock %}
+</body>
+
