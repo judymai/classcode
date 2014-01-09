@@ -1,0 +1,77 @@
+<html>
+<!-- The top of file index.html -->
+<html itemscope itemtype="http://schema.org/Article">
+<head>
+  <!-- BEGIN Pre-requisites -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+  </script>
+  <script type="text/javascript">
+    (function () {
+      var po = document.createElement('script');
+      po.type = 'text/javascript';
+      po.async = true;
+      po.src = 'https://plus.google.com/js/client:plusone.js?onload=start';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+  <!-- END Pre-requisites -->
+</head>
+<!-- ... -->
+<body>
+<h1>Log in with Google+</h1>
+
+<!-- Add where you want your sign-in button to render -->
+<div id="signinButton">
+  <span class="g-signin"
+    data-scope="https://www.googleapis.com/auth/plus.login email"
+    data-clientid="47466997442-r9l1pl30ongllkc7mha8ck58olnvj835.apps.googleusercontent.com"
+    data-redirecturi="postmessage"
+    data-accesstype="offline"
+    data-cookiepolicy="single_host_origin"
+    data-callback="signInCallback">
+  </span>
+</div>
+<h1 id="results"></h1>
+<h1>After Button</h1>
+
+<!-- Last part of BODY element in file index.html -->
+<script type="text/javascript">
+function signInCallback(authResult) {
+  if (authResult['code']) {
+
+    // Hide the sign-in button now that the user is authorized, for example:
+    $('#signinButton').attr('style', 'display: none');
+    // Send the code to the server
+    $.ajax({
+       type: 'POST',
+       url: '/storeToken',
+       // MZ contentType: 'application/octet-stream; charset=utf-8',
+       //processData: true, //  changed from original
+       data: {code : authResult['code'],
+	      token: authResult['access_token']},
+       dataType:'json',
+       success: function(result) {
+         // Handle or verify the server response if necessary.
+	 
+         // Prints the list of people that the user has allowed the app to know
+         // to the console.
+         console.log(result);
+	 $("#results").html("Welcome "+result.emails[0].value)
+
+       }
+     });
+   } else if (authResult['error']) {
+     // There was an error.
+     // Possible error codes:
+     //   "access_denied" - User denied access to your app
+     //   "immediate_failed" - Could not automatially log in the user
+     // console.log('There was an error: ' + authResult['error']);
+   }
+ }
+</script>
+
+page stuff goes here
+</body>
+
+</html>
